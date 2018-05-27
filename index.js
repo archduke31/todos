@@ -22,4 +22,16 @@ app.post('/todos',function(req,res){
   });
 });
 
+app.get('/todos',function(req,res){
+  Todo.find().then((todos)=>{
+    res.send({todos});
+  },(err)=>{
+    res.status.send(err);
+  })
+});
+
 app.listen('5000');
+
+module.exports={
+  app
+};
