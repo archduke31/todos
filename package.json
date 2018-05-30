@@ -4,6 +4,7 @@
   "description": "Todos APi",
   "main": "index.js",
   "scripts": {
+    "start":"node index.js",
     "test": "mocha **/*.test.js",
     "test-watch": "nodemon --exec 'npm test'"
   },

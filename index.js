@@ -6,7 +6,7 @@ const app=express();
 const {mongoose} =require('./db/mongoose');
 const {Todo} = require('./models/todoSchema');
 const {User}=require('./models/userSchema');
-
+const {ObjectID}=require('mongodb');
 
 app.use(bodyParser.json());
 
@@ -30,7 +30,25 @@ app.get('/todos',function(req,res){
   })
 });
 
-app.listen('5000');
+app.get('/todos/:id',function(req,res){
+  if(!ObjectID.isValid(req.params.id)){
+    res.status(404).send();
+  }else{
+    console.log(req.params.id);
+    Todo.findById(req.params.id).then((todo)=>{
+      console.log(todo);
+      if(!todo){
+        res.status(404).send({message:"object not found"});
+      }else{
+        res.send({todo});
+      }
+    }).catch((e)=>{
+      res.status(400).send();
+    });
+  }
+});
+
+app.listen(process.env.PORT|| 5000);
 
 module.exports={
   app

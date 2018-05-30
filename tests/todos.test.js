@@ -6,9 +6,14 @@ const {app}=require('../index.js');
 const {mongoose} =require('.././db/mongoose');
 const {Todo} = require('.././models/todoSchema');
 const {User}=require('.././models/userSchema');
+const {ObjectID}=require('mongodb');
 
+// const todo={
+//   _id:new ObjectID(),
+//   text:'This one is from the test'
+// };
 
-describe('Get /todos',()=>{
+describe('GET /todos',()=>{
   it('should get all todos',(done)=>{
     request(app)
     .get('/todos')
@@ -18,4 +23,9 @@ describe('Get /todos',()=>{
     })
     .end(done);
   });
+});
+describe('POST /todos',()=>{
+  request(app)
+  .post('/todos')
+  .send()
 });
