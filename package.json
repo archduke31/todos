@@ -4,7 +4,7 @@
   "description": "Todos APi",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "mocha **/*.test.js",
     "test-watch": "nodemon --exec 'npm test'"
   },
@@ -13,10 +13,13 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
+    "lodash": "^4.17.10",
     "mocha": "^5.2.0",
     "mongodb": "^3.1.0-beta4",
     "mongoose": "^5.1.2",
     "npm": "^6.1.0",
-    "supertest": "^3.1.0"
+    "supertest": "^3.1.0",
+    "validator": "^10.3.0"
   }
 }
